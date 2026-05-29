@@ -71,7 +71,7 @@ const LoginSignup = () => {
         try {
 
             const response = await axios.post(
-                "http://localhost:3200/login",
+                "https://vercel-backend-umber-kappa.vercel.app/login",
                 {
                     email: formData.email,
                     password: formData.password,
