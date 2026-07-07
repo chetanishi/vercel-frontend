@@ -45,7 +45,7 @@ const LoginSignup = () => {
         try {
 
             const response = await axios.post(
-                "http://localhost:3200/signup",
+                "https://vercel-backend-umber-kappa.vercel.app/signup",
                 formData
             );
                 console.log(response.data);
@@ -77,17 +77,15 @@ const LoginSignup = () => {
                     password: formData.password,
                 }
             );
-               navigate("/")
-            console.log(response.data);
-            // STORE TOKEN
-             localStorage.setItem("token", response.data.token);
-             alert(response.data.message);
+              localStorage.setItem("token", response.data.token);
+                alert(response.data.message);
+                navigate("/");
 
         } catch (error) {
 
             console.log(error);
 
-            alert(error.response.data.message);
+            alert( error.response?.data?.message || "Something went wrong");
 
         }
 
