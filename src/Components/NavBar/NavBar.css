@@ -1,24 +1,31 @@
-
-.navbar{
+.navbar {
     display: flex;
     justify-content: space-around;
+    align-items: center;
     padding: 16px;
     box-shadow: 0 1px 3px -2px black;
+    gap: 20px;
 }
 
-.nav-logo{
+.nav-logo {
     display: flex;
     align-items: center;
     gap: 10px;
 }
 
-.nav-logo p{
+.nav-logo img {
+    width: 60px;
+    height: auto;
+}
+
+.nav-logo p {
     color: #171717;
     font-size: 38px;
     font-weight: 600;
+    margin: 0;
 }
 
-.nav-menu{
+.nav-menu {
     display: flex;
     align-items: center;
     list-style: none;
@@ -26,37 +33,43 @@
     color: #626262;
     font-size: 20px;
     font-weight: 500;
+    margin: 0;
+    padding: 0;
 }
 
-.nav-menu li{
+.nav-menu li {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 3px;
     cursor: pointer;
-
 }
 
-.nav-menu hr{
+.nav-menu li a {
+    color: #626262;
+}
+
+.nav-menu hr {
     border: none;
     width: 80%;
     height: 3px;
     border-radius: 10px;
-    background: #FF4141;
+    background: #ff4141;
+    margin: 0;
 }
 
-.nav-login-cart{
+.nav-login-cart {
     display: flex;
     align-items: center;
     gap: 45px;
 }
 
-.nav-login-cart button{
+.nav-login-cart button {
     width: 157px;
     height: 58px;
     outline: none;
-    border: 1px solid 7a7a7a;
+    border: 1px solid #7a7a7a;
     border-radius: 75px;
     color: #515151;
     font-size: 20px;
@@ -65,11 +78,16 @@
     cursor: pointer;
 }
 
-.nav-login-cart button:active{
+.nav-login-cart button:active {
     background: #f3f3f3;
 }
 
-.nav-cart-count{
+.nav-login-cart img {
+    width: 40px;
+    height: auto;
+}
+
+.nav-cart-count {
     width: 22px;
     height: 22px;
     display: flex;
@@ -81,4 +99,163 @@
     font-size: 14px;
     background: red;
     color: white;
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 1024px) {
+
+    .navbar {
+        padding: 14px 20px;
+        justify-content: space-between;
+    }
+
+    .nav-logo img {
+        width: 50px;
+    }
+
+    .nav-logo p {
+        font-size: 28px;
+    }
+
+    .nav-menu {
+        gap: 25px;
+        font-size: 17px;
+    }
+
+    .nav-login-cart {
+        gap: 25px;
+    }
+
+    .nav-login-cart button {
+        width: 120px;
+        height: 48px;
+        font-size: 17px;
+    }
+
+    .nav-login-cart img {
+        width: 35px;
+    }
+
+    .nav-cart-count {
+        margin-left: -35px;
+    }
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+
+    .navbar {
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding: 12px 16px;
+    }
+
+    .nav-logo {
+        order: 1;
+    }
+
+    .nav-logo img {
+        width: 42px;
+    }
+
+    .nav-logo p {
+        font-size: 22px;
+    }
+
+    .nav-login-cart {
+        order: 2;
+        gap: 18px;
+    }
+
+    .nav-login-cart button {
+        width: 90px;
+        height: 40px;
+        font-size: 15px;
+    }
+
+    .nav-login-cart img {
+        width: 30px;
+    }
+
+    .nav-cart-count {
+        width: 18px;
+        height: 18px;
+        font-size: 11px;
+        margin-top: -28px;
+        margin-left: -28px;
+    }
+
+    .nav-menu {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+        gap: 35px;
+        font-size: 16px;
+        padding-top: 15px;
+    }
+}
+
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media (max-width: 480px) {
+
+    .navbar {
+        padding: 10px;
+        gap: 10px;
+    }
+
+    .nav-logo {
+        gap: 5px;
+    }
+
+    .nav-logo img {
+        width: 35px;
+    }
+
+    .nav-logo p {
+        font-size: 17px;
+    }
+
+    .nav-login-cart {
+        gap: 12px;
+    }
+
+    .nav-login-cart button {
+        width: 70px;
+        height: 35px;
+        font-size: 13px;
+    }
+
+    .nav-login-cart img {
+        width: 27px;
+    }
+
+    .nav-cart-count {
+        width: 16px;
+        height: 16px;
+        font-size: 10px;
+        margin-top: -25px;
+        margin-left: -24px;
+    }
+
+    .nav-menu {
+        gap: 18px;
+        font-size: 14px;
+        padding-top: 10px;
+    }
+
+    .nav-menu hr {
+        height: 2px;
+    }
 }
