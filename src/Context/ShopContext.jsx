@@ -11,7 +11,7 @@ const ShopContextProvider = (props) => {
 
     useEffect(() => {
 
-        fetch("http://localhost:3200/api/products")
+        fetch("https://vercel-backend-umber-kappa.vercel.app/api/products")
 
             .then((response) => response.json())
 
