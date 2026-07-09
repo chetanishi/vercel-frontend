@@ -6,7 +6,7 @@ function Item(props)
     return(
       <div className="item">                             
        <Link to={`/product/${props.id}`}> 
-      <img src={`https://vercel-backend-umber-kappa.vercel.app${props.image}`} alt={props.name} />    
+    <img src={ props.image.startsWith("/uploads") ? `https://vercel-backend-umber-kappa.vercel.app${props.image}` : props.image  }  alt={props.name} />    
        </Link>                  
          <p>{props.name}</p>
          <div className="item-prices">
