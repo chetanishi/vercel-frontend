@@ -1,89 +1,122 @@
 import { createContext, useEffect, useState } from "react";
-import all_product from "../Components/Assets/all_product.js"
 
-export const ShopContext = createContext(null)
-
-const getDefaultCart = () => {  // This function creates default empty cart.
-    let cart = {};  // Creates empty object.
-    for (let index = 0; index < all_product.length + 1; index++) {
-        cart[index] = 0; //Creates quantity.
-    }
-    return cart
-}
+export const ShopContext = createContext(null);
 
 const ShopContextProvider = (props) => {
 
-    const [cartItems, setCartItems] = useState(() => {
+    const [all_product, setAllProduct] = useState([]);
 
-    const token = localStorage.getItem("token");
+    const [cartItems, setCartItems] = useState({});
 
-    if (!token) {
-        return getDefaultCart();
-    }
 
-    const savedCart =
-        localStorage.getItem("cartItems");
+    useEffect(() => {
 
-    return savedCart
-        ? JSON.parse(savedCart)
-        : getDefaultCart();
+        fetch("http://localhost:3200/api/products")
 
-});
+            .then((response) => response.json())
+
+            .then((data) => {
+
+                setAllProduct(data.products);
+
+                const cart = {};
+
+                data.products.forEach((product) => {
+                    cart[product.id] = 0;
+                });
+
+                setCartItems(cart);
+
+            })
+
+            .catch((error) => {
+                console.log("Error fetching products:", error);
+            });
+
+    }, []);
 
 
     const addToCart = (itemId) => {
 
-        setCartItems((prev) => {
+        setCartItems((prev) => ({
+            ...prev,
+            [itemId]: (prev[itemId] || 0) + 1
+        }));
 
-            const updatedCart = {
-                ...prev,
-                [itemId]: prev[itemId] + 1
-            };
+    };
 
-            if (localStorage.getItem("token")) {
-                localStorage.setItem(
-                    "cartItems",
-                    JSON.stringify(updatedCart)
-                );
-            }
-
-            return updatedCart;
-        });
-
-    }
 
     const removeFromCart = (itemId) => {
-        setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] - 1 }))
-    }
+
+        setCartItems((prev) => ({
+            ...prev,
+            [itemId]: Math.max((prev[itemId] || 0) - 1, 0)
+        }));
+
+    };
+
 
     const getTotalCartAmount = () => {
+
         let totalAmount = 0;
+
         for (const item in cartItems) {
+
             if (cartItems[item] > 0) {
-                let itemInfo = all_product.find((product) => product.id === Number(item))
-                totalAmount += itemInfo.new_price * cartItems[item]
+
+                const itemInfo = all_product.find(
+                    (product) => product.id === Number(item)
+                );
+
+                if (itemInfo) {
+                    totalAmount +=
+                        itemInfo.new_price * cartItems[item];
+                }
+
             }
 
         }
+
         return totalAmount;
-    }
+    };
+
 
     const getTotalCartItems = () => {
+
         let totalItem = 0;
+
         for (const item in cartItems) {
+
             if (cartItems[item] > 0) {
                 totalItem += cartItems[item];
             }
-        } return totalItem
-    }
 
-    const contextValue = { getTotalCartItems, getTotalCartAmount, all_product, cartItems, addToCart, removeFromCart }
+        }
+
+        return totalItem;
+    };
+
+
+    const contextValue = {
+        getTotalCartItems,
+        getTotalCartAmount,
+        all_product,
+        cartItems,
+        addToCart,
+        removeFromCart
+    };
 
 
     return (
+
         <ShopContext.Provider value={contextValue}>
+
             {props.children}
+
         </ShopContext.Provider>
-    )
-}
+
+    );
+};
+
+
 export default ShopContextProvider;
