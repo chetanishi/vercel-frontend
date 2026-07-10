@@ -42,3 +42,113 @@
     font-size: 18px;
     font-weight: 500;
 }
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 1024px) {
+
+    .shopcategory-banner {
+        width: 90%;
+        margin: 25px auto;
+    }
+
+    .shopcategory-indexSort {
+        margin: 0 50px;
+    }
+
+    .shopcategory-products {
+        margin: 30px 50px;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 50px 25px;
+    }
+
+    .shopcategory-loadmore {
+        margin: 100px auto;
+        width: 200px;
+        height: 60px;
+        font-size: 16px;
+    }
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+
+    .shopcategory-banner {
+        width: 95%;
+        margin: 20px auto;
+    }
+
+    .shopcategory-indexSort {
+        margin: 20px;
+        gap: 20px;
+        font-size: 14px;
+    }
+
+    .shopcategory-sort {
+        padding: 8px 15px;
+        white-space: nowrap;
+    }
+
+    .shopcategory-sort img {
+        width: 10px;
+        margin-left: 5px;
+    }
+
+    .shopcategory-products {
+        margin: 30px 20px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px 20px;
+    }
+
+    .shopcategory-loadmore {
+        margin: 70px auto;
+        width: 180px;
+        height: 55px;
+        font-size: 15px;
+    }
+}
+
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media (max-width: 480px) {
+
+    .shopcategory-banner {
+        width: 96%;
+        margin: 15px auto;
+    }
+
+    .shopcategory-indexSort {
+        margin: 20px 15px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+        font-size: 13px;
+    }
+
+    .shopcategory-sort {
+        padding: 7px 14px;
+        font-size: 13px;
+    }
+
+    .shopcategory-products {
+        margin: 25px 15px;
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .shopcategory-loadmore {
+        margin: 50px auto;
+        width: 160px;
+        height: 48px;
+        font-size: 14px;
+    }
+}

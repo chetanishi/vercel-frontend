@@ -55,3 +55,128 @@
     font-size: 16px;
     cursor: pointer;
 }
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 1024px) {
+
+    .newletter {
+        width: 75%;
+        height: auto;
+        min-height: 350px;
+        padding: 40px 60px;
+        margin-bottom: 100px;
+        gap: 25px;
+        text-align: center;
+    }
+
+    .newletter h1 {
+        font-size: 42px;
+    }
+
+    .newletter p {
+        font-size: 18px;
+    }
+
+    .newletter div {
+        width: 600px;
+        max-width: 100%;
+        height: 60px;
+    }
+
+    .newletter input {
+        width: 65%;
+        margin-left: 25px;
+    }
+
+    .newletter div button {
+        width: 180px;
+        height: 60px;
+    }
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+
+    .newletter {
+        width: 85%;
+        height: auto;
+        min-height: 300px;
+        padding: 40px 20px;
+        margin-bottom: 70px;
+        gap: 20px;
+        text-align: center;
+    }
+
+    .newletter h1 {
+        font-size: 32px;
+    }
+
+    .newletter p {
+        font-size: 16px;
+    }
+
+    .newletter div {
+        width: 100%;
+        height: 55px;
+    }
+
+    .newletter input {
+        width: 60%;
+        margin-left: 20px;
+        font-size: 14px;
+    }
+
+    .newletter div button {
+        width: 140px;
+        height: 55px;
+        font-size: 14px;
+    }
+}
+
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media (max-width: 480px) {
+
+    .newletter {
+        width: 90%;
+        min-height: 280px;
+        padding: 30px 10px;
+        margin-bottom: 50px;
+        gap: 18px;
+    }
+
+    .newletter h1 {
+        font-size: 25px;
+    }
+
+    .newletter p {
+        font-size: 14px;
+    }
+
+    .newletter div {
+        width: 100%;
+        height: 50px;
+    }
+
+    .newletter input {
+        width: 55%;
+        margin-left: 15px;
+        font-size: 12px;
+    }
+
+    .newletter div button {
+        width: 110px;
+        height: 50px;
+        font-size: 12px;
+    }
+}

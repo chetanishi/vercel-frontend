@@ -24,3 +24,84 @@
     display: flex;
     gap: 30px;
 }
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 1024px) {
+
+    .relatedproducts {
+        height: auto;
+        padding: 40px 20px;
+    }
+
+    .relatedproducts h1 {
+        font-size: 40px;
+    }
+
+    .relatedproducts-item {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 25px;
+        margin-top: 40px;
+    }
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+
+    .relatedproducts {
+        height: auto;
+        padding: 30px 15px;
+    }
+
+    .relatedproducts h1 {
+        font-size: 30px;
+        text-align: center;
+    }
+
+    .relatedproducts hr {
+        width: 150px;
+        height: 4px;
+    }
+
+    .relatedproducts-item {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px 15px;
+        margin-top: 30px;
+    }
+}
+
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media (max-width: 480px) {
+
+    .relatedproducts {
+        padding: 25px 15px;
+    }
+
+    .relatedproducts h1 {
+        font-size: 24px;
+    }
+
+    .relatedproducts hr {
+        width: 120px;
+        height: 3px;
+    }
+
+    .relatedproducts-item {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        margin-top: 25px;
+    }
+}

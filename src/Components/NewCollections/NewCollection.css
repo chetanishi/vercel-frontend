@@ -26,3 +26,83 @@
    margin-top: 50px;
    gap: 30px;
 }
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 1024px) {
+
+    .new-collections {
+        margin-bottom: 80px;
+        padding: 0 20px;
+    }
+
+    .new-collections h1 {
+        font-size: 40px;
+    }
+
+    .collections {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 25px;
+        margin-top: 40px;
+    }
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+
+    .new-collections {
+        margin-bottom: 60px;
+        padding: 0 15px;
+    }
+
+    .new-collections h1 {
+        font-size: 30px;
+        text-align: center;
+    }
+
+    .new-collections hr {
+        width: 150px;
+        height: 4px;
+    }
+
+    .collections {
+        width: 100%;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px 15px;
+        margin-top: 30px;
+    }
+}
+
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media (max-width: 480px) {
+
+    .new-collections {
+        margin-bottom: 50px;
+        padding: 0 15px;
+    }
+
+    .new-collections h1 {
+        font-size: 24px;
+    }
+
+    .new-collections hr {
+        width: 120px;
+        height: 3px;
+    }
+
+    .collections {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        margin-top: 25px;
+    }
+}

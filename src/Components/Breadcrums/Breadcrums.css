@@ -8,3 +8,59 @@
     margin: 60px;
     text-transform: capitalize;
 }
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 1024px) {
+
+    .breadcrum {
+        margin: 40px;
+        font-size: 14px;
+        gap: 6px;
+    }
+
+    .breadcrum img {
+        width: 7px;
+    }
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+
+    .breadcrum {
+        margin: 25px 20px;
+        font-size: 12px;
+        gap: 5px;
+        flex-wrap: wrap;
+        line-height: 1.8;
+    }
+
+    .breadcrum img {
+        width: 6px;
+    }
+}
+
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media (max-width: 480px) {
+
+    .breadcrum {
+        margin: 20px 15px;
+        font-size: 10px;
+        gap: 4px;
+        line-height: 1.7;
+    }
+
+    .breadcrum img {
+        width: 5px;
+    }
+}

@@ -24,7 +24,9 @@ function CartItems() {
                     if (cartItems[e.id] > 0) {
                         return <div key={e.id} >
                             <div className="cartitems-format cartitems-format-main">
-                                <img src={e.image} alt="" className="carticon-product-icon" />
+
+                                <img src={e.image.startsWith("/uploads") ? `https://vercel-backend-umber-kappa.vercel.app${e.image}` : e.image } alt={e.name} className="carticon-product-icon" />
+
                                 <p>{e.name}</p>
                                 <p>${e.new_price}</p>
                                 <button className="cartitems-quantity">{cartItems[e.id]}</button>

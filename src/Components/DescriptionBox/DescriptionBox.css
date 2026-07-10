@@ -35,3 +35,94 @@
     font-size: 20px;
     font-weight: 500;
 }
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 1024px) {
+
+    .descriptionbox {
+        margin: 80px 60px;
+    }
+
+    .descriptionbox-nav-box {
+        width: 150px;
+        height: 60px;
+        font-size: 15px;
+    }
+
+    .descriptionbox-description {
+        gap: 20px;
+        padding: 35px;
+        padding-bottom: 50px;
+    }
+
+    .descriptionbox-description p {
+        font-size: 17px;
+        line-height: 1.6;
+    }
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+
+    .descriptionbox {
+        margin: 60px 20px;
+    }
+
+    .descriptionbox-navigator {
+        width: 100%;
+    }
+
+    .descriptionbox-nav-box {
+        width: 50%;
+        height: 55px;
+        font-size: 14px;
+    }
+
+    .descriptionbox-description {
+        gap: 18px;
+        padding: 25px;
+        padding-bottom: 35px;
+    }
+
+    .descriptionbox-description p {
+        font-size: 15px;
+        line-height: 1.6;
+        text-align: justify;
+    }
+}
+
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media (max-width: 480px) {
+
+    .descriptionbox {
+        margin: 40px 12px;
+    }
+
+    .descriptionbox-nav-box {
+        height: 48px;
+        font-size: 12px;
+    }
+
+    .descriptionbox-description {
+        gap: 15px;
+        padding: 18px;
+        padding-bottom: 25px;
+    }
+
+    .descriptionbox-description p {
+        font-size: 13px;
+        line-height: 1.6;
+        text-align: left;
+    }
+}

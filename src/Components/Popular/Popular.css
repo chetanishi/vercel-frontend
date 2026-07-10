@@ -25,3 +25,84 @@
     display: flex;
     gap: 1px;
 }
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 1024px) {
+
+    .popular {
+        height: auto;
+        padding: 30px 20px;
+    }
+
+    .popular h1 {
+        font-size: 40px;
+    }
+
+    .popular-item {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 25px;
+        margin-top: 40px;
+    }
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+
+    .popular {
+        height: auto;
+        padding: 30px 15px;
+    }
+
+    .popular h1 {
+        font-size: 30px;
+        text-align: center;
+    }
+
+    .popular hr {
+        width: 150px;
+        height: 4px;
+    }
+
+    .popular-item {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px 15px;
+        margin-top: 30px;
+    }
+}
+
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media (max-width: 480px) {
+
+    .popular {
+        padding: 25px 15px;
+    }
+
+    .popular h1 {
+        font-size: 24px;
+    }
+
+    .popular hr {
+        width: 120px;
+        height: 3px;
+    }
+
+    .popular-item {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        margin-top: 25px;
+    }
+}
