@@ -18,7 +18,8 @@ function CartItems() {
                 <p>Remove</p>
             </div>
             <hr />
-            {
+            { 
+              
                 all_product.map((e) => {
                   
                     if (cartItems[e.id] > 0) {
@@ -31,13 +32,15 @@ function CartItems() {
                                 <p>${e.new_price}</p>
                                 <button className="cartitems-quantity">{cartItems[e.id]}</button>
                                 <p>${e.new_price*cartItems[e.id]}</p>
-                                <img src={remove_icon} onClick={() => { removeFromCart(e.id) }} alt="" />
+
+                                <img src={remove_icon} className="cartitems-remove-icon" onClick={() => { removeFromCart(e.id); }}  alt="Remove product" />
+                          
                             </div>
                             <hr />
                         </div>
                     }
                     return null
-                })
+                }) 
             }
              <div className="cartitems-down">
                 <div className="cartitems-total">

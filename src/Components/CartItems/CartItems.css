@@ -159,11 +159,18 @@
    MOBILE
 ========================= */
 
+
 @media (max-width: 768px) {
 
     .cartitems {
         margin: 50px 15px;
         overflow-x: hidden;
+    }
+
+     .cartitems-remove-icon {
+        width: 14px;
+        margin: 0;
+        cursor: pointer;
     }
 
     .cartitems-format-main {
@@ -252,6 +259,11 @@
 
     .cartitems {
         margin: 35px 10px;
+    }
+
+      .cartitems-remove-icon {
+        width: 12px;
+        margin: 0;
     }
 
     .cartitems-format-main {
