@@ -78,6 +78,7 @@ const LoginSignup = () => {
                 }
             );
               localStorage.setItem("token", response.data.token);
+              localStorage.setItem("userId", response.data.user._id);
                 alert(response.data.message);
                 navigate("/");
 

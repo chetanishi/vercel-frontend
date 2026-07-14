@@ -1,4 +1,6 @@
 import { createContext, useEffect, useState } from "react";
+import axios from "axios";
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
 export const ShopContext = createContext(null);
 
@@ -8,52 +10,131 @@ const ShopContextProvider = (props) => {
 
     const [cartItems, setCartItems] = useState({});
 
+    console.log(import.meta.env.VITE_BACKEND_URL);
 
-    useEffect(() => {
+   useEffect(() => {
 
-        fetch("https://vercel-backend-umber-kappa.vercel.app/api/products")
+    const fetchProductsAndCart = async () => {
 
-            .then((response) => response.json())
+        try {
 
-            .then((data) => {
+            const response = await axios.get(
+                `${backendUrl}/api/products`
+            );
 
-                setAllProduct(data.products);
+            setAllProduct(response.data.products);
 
-                const cart = {};
+            const cart = {};
 
-                data.products.forEach((product) => {
-                    cart[product.id] = 0;
-                });
-
-                setCartItems(cart);
-
-            })
-
-            .catch((error) => {
-                console.log("Error fetching products:", error);
+            response.data.products.forEach((product) => {
+                cart[product.id] = 0;
             });
 
-    }, []);
+            const userId = localStorage.getItem("userId");
 
+            if (userId) {
 
-    const addToCart = (itemId) => {
+                const cartResponse = await axios.get(
+                    `${backendUrl}/api/cart/${userId}`
+                );
 
-        setCartItems((prev) => ({
-            ...prev,
-            [itemId]: (prev[itemId] || 0) + 1
-        }));
+                if (
+                    cartResponse.data.cart &&
+                    cartResponse.data.cart.items
+                ) {
+
+                    cartResponse.data.cart.items.forEach((item) => {
+
+                        cart[item.productId] = item.quantity;
+
+                    });
+
+                }
+
+            }
+
+            setCartItems(cart);
+
+        } catch (error) {
+
+            console.log(error);
+
+        }
 
     };
 
+    fetchProductsAndCart();
 
-    const removeFromCart = (itemId) => {
+}, []);
+
+   const addToCart = async (itemId) => {
+
+    const userId = localStorage.getItem("userId");
+
+    if (!userId) {
+
+        alert("Please Login First");
+
+        return;
+
+    }
+
+    try {
+
+        await axios.post(
+            `${backendUrl}/api/cart/add`,
+            {
+                userId,
+                productId: itemId,
+            }
+        );
 
         setCartItems((prev) => ({
             ...prev,
-            [itemId]: Math.max((prev[itemId] || 0) - 1, 0)
+            [itemId]: (prev[itemId] || 0) + 1,
         }));
 
-    };
+    } catch (error) {
+
+        console.log(error);
+
+    }
+
+};
+
+
+  const removeFromCart = async (itemId) => {
+
+    const userId = localStorage.getItem("userId");
+
+    if (!userId) {
+
+        return;
+
+    }
+
+    try {
+
+        await axios.post(
+            `${backendUrl}/api/cart/remove`,
+            {
+                userId,
+                productId: itemId,
+            }
+        );
+
+        setCartItems((prev) => ({
+            ...prev,
+            [itemId]: Math.max((prev[itemId] || 0) - 1, 0),
+        }));
+
+    } catch (error) {
+
+        console.log(error);
+
+    }
+
+};
 
 
     const getTotalCartAmount = () => {

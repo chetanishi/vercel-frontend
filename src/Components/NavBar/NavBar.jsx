@@ -33,6 +33,7 @@ function NavBar() {
         // REMOVE TOKEN
 
         localStorage.removeItem("token");
+        localStorage.removeItem("userId");
 
 
 
