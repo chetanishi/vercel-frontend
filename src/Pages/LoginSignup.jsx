@@ -12,8 +12,9 @@ const LoginSignup = () => {
     const navigate=useNavigate();
     // LOGIN / SIGNUP STATE
 
-    const [state, setState] = useState("Login");
 
+    const [state, setState] = useState("Login");
+    const [loading, setLoading] = useState(false);
  
 
     // FORM DATA
@@ -66,7 +67,9 @@ const LoginSignup = () => {
 
     const loginHandler = async (e) => {
 
+       
         e.preventDefault();
+         setLoading(true);
 
         try {
 
@@ -79,13 +82,14 @@ const LoginSignup = () => {
             );
               localStorage.setItem("token", response.data.token);
               localStorage.setItem("userId", response.data.user._id);
-                alert(response.data.message);
-                navigate("/");
+              setLoading(false);
+              alert(response.data.message);
+               navigate("/");
 
         } catch (error) {
 
+             setLoading(false);
             console.log(error);
-
             alert( error.response?.data?.message || "Something went wrong");
 
         }
@@ -149,13 +153,10 @@ const LoginSignup = () => {
 
 
 
-                    <button type="submit">
-
-                        {state === "Login"
-                            ? "Login"
-                            : "Sign Up"}
-
-                    </button>
+                  <button type="submit" disabled={loading}>
+                      { loading ? ( <span className="loader"></span> ) :
+                       ( state === "Login" ? "Login" : "Sign Up" ) }
+                  </button>
 
                 </form>
 

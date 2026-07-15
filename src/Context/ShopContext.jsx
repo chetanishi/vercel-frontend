@@ -10,7 +10,6 @@ const ShopContextProvider = (props) => {
 
     const [cartItems, setCartItems] = useState({});
 
-    console.log(import.meta.env.VITE_BACKEND_URL);
 
    useEffect(() => {
 
@@ -18,6 +17,7 @@ const ShopContextProvider = (props) => {
 
         try {
 
+            
             const response = await axios.get(
                 `${backendUrl}/api/products`
             );
@@ -54,10 +54,12 @@ const ShopContextProvider = (props) => {
             }
 
             setCartItems(cart);
-
+           
         } catch (error) {
 
             console.log(error);
+            
+
 
         }
 
